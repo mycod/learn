@@ -97,6 +97,7 @@ __global__ void accumulate(int *dev_histo, int length){
 	while (span < length){
 		if (index >(span - 1)){
 			dev_histo[index] += dev_histo[index - span];
+            // 這里将数据加完写到原数组可能存在乱序的问题，应该用另外一个数组来保存，原来的数组不变
 		}
 		__syncthreads();
 		span *= 2;
