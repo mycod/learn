@@ -4,7 +4,14 @@ from .qrcode_detect import image_handle
 from .classify import image_classify
 
 def recongnition(img_path):
-
+    '''
+    识别图中二维码信息，回收物信息
+    
+    Args: `img_path` -> 图片地址
+    
+    Return: [bin_id, bin_class, classify_result]
+            [垃圾桶id，垃圾桶回收类别，{各回收物类别数量}]
+    '''
     # 首先获得二维码信息
     cmd = "zbarimg -q " + img_path
     with os.popen(cmd) as code:
