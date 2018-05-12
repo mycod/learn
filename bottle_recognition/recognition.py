@@ -32,7 +32,7 @@ def recongnition(img_path):
     if not os.path.exists(filename):
         return False
     
-    classify_result = {'cans': 0, 'glass': 0, 'plastic': 0}
+    classify_result = {'cans': 0, 'glass': 0, 'plastic': 0, 'others': 0}
     for file in os.listdir(filename):
         file_path = filename + '\\' + file
         # 将图片分别送入分类网络
