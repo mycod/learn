@@ -16,7 +16,8 @@ def recongnition(img_path):
     cmd = "zbarimg -q " + img_path
     with os.popen(cmd) as code:
         info = code.read().lstrip('QR-Code:').strip('\n')
-
+    if info == '':
+        return False
     bin_class, bin_id = info.split('_')
     
     # 调用二维码检测模块，切分待测图片
